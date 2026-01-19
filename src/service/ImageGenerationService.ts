@@ -1,14 +1,22 @@
-export function uploadImage(file: File, prompt: string) {
+import type {ImageGenerationDto} from "../dto/ImageGenerationDto.ts";
+
+const BASE_URL = "http://localhost:8080";
+
+export function uploadImage(
+    file: File,
+    prompt: string
+): Promise<ImageGenerationDto> {
+
     const formData = new FormData();
     formData.append("file", file);
     formData.append("prompt", prompt);
 
-    return fetch("http://localhost:8080/api/image/generate-image", {
+    return fetch(`${BASE_URL}/api/image/generate-image`, {
         method: "POST",
         body: formData
     }).then(res => {
         if (!res.ok) {
-            throw new Error("Upload failed");
+            throw new Error("Image generation failed!");
         }
         return res.json();
     });

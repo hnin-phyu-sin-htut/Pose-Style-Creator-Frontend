@@ -1,5 +1,7 @@
-export interface ImageGenerationDto{
+export interface ImageGenerationDto {
+    id: number;
     backgroundImage: string;
-    subjectType: string;
+    prompt: string;
     sourceImageUrl: string;
+    createdAt: string;
 }
