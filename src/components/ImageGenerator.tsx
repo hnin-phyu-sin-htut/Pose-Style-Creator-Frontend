@@ -85,7 +85,7 @@ export default function ImageGenerator() {
                     <img
                         className="w-70 mt-2 rounded border-2"
                         src={generatedImage}
-                        alt="Generated Result"
+                        alt="Generated Image"
                     />
                 </>
             )}
